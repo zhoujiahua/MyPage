@@ -72,10 +72,12 @@ $(function() {
 			totalPage:y,
 			totalSize: t,
 			callback: function(num) {
-				getData(num);
+				var lods = loadData(num);
+				getData(lods);
 			}
 		});
 	}
+	
 	
 	//数据请求
 	function getData(dataNum) {
@@ -83,20 +85,19 @@ $(function() {
 			type: 'post',
 			url: 'http://route.showapi.com/109-35',
 			dataType: 'json',
-			data: loadData(dataNum),
-
+			data: dataNum,
 			error: function(XmlHttpRequest, textStatus, errorThrown) {
 				alert("操作失败!");
 			},
 			success: function(res) {
 				var dataList = res.showapi_res_body.pagebean;
 				var countPage = dataList.allNum;
-				var fenye = dataList.allPages;
+				var pageNumber = dataList.allPages;
 				var searchPage = dataList.currentPage;
 				var conList = dataList.contentlist;
 				
 				//分页参数
-				parm(searchPage,fenye,countPage);
+				parm(searchPage,pageNumber,countPage);
 				
 				//数据返回
 				var listDetail = "";
