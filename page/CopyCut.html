@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="app">
+        <!-- copy -->
+        <div class="copy">
+            <input type="text" id="fool" value="Hello World!">
+            <button class="btn" data-clipboard-target="#fool">复制</button>
+        </div>
+
+        <!-- cut -->
+        <div class="cut">
+            <input type="text" id="bar" value="萨瓦迪卡" >
+            <button class="btn" data-clipboard-target="#bar" data-clipboard-action="cut" >剪切</button>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="js/clipboard.js"></script>
+    <script>
+        
+        var clipboard = new ClipboardJS('.btn');
+
+        clipboard.on('success', function (e) {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+            if(e.action == 'cut'){
+                alert('成功剪切:'+e.text);
+            }else if(e.action == 'copy'){
+                alert('成功复制:'+e.text);
+            }else{
+                alert("非法操作");
+            }
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function (e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+        });
+    </script>
+
+
+</body>
+
+</html>
