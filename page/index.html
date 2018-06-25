@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />-->
+		<title></title>
+		<style type="text/css">
+			.new-list li span {
+				display: inline-block;
+				height: 100px;
+				width: 200px;
+				border: 1px solid pink;
+			}
+			.news-con{
+				width: 600px;
+			}
+			.new-list li {
+				float: left;
+				width: 180px;
+				height: 60px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--id="js_list"-->
+		<div class="news-con">
+			<ul class=" new-list">
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<li>ewdawfrwesfweefrwfawWAEFAE</li>
+				<!--<li><img src="images/pic1.jpg" /></li>
+			<li><img src="images/pic2.jpg" /></li>
+			<li><img src="images/pic3.jpg" /></li>
+			<li><img src="images/pic1.jpg" /></li>
+			<li><img src="images/pic2.jpg" /></li>-->
+
+			</ul>
+		</div>
+
+		<!-- jQuery library -->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/more.js"></script>
+		<!-- bxSlider Javascript file -->
+		<script src="js/jquery.bxslider.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('.new-list').bxSlider({
+					mode: 'horizontal',
+					moveSlides: 6,
+					slideMargin: 40,
+					infiniteLoop: true,
+					slideWidth: 660,
+					minSlides: 6,
+					maxSlides: 6,
+					speed: 800,
+				});
+			});
+		</script>
+	</body>
+
+</html>

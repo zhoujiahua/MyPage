@@ -23,47 +23,47 @@ window.onload = function(){
     }
 } */
 
-$(function () {
-    var oValo = $("#js_box").val();
-    var oList = $("#js_list");
+$(function() {
+	var oValo = $("#js_box").val();
+	var oList = $("#js_list");
 
-    $("#js_box").keyup(function () {
-        getData(oValo);
-        // setText(oValo);
+	$("#js_box").keyup(function() {
+		getData(oValo);
+		// setText(oValo);
 
-    })
-    getData(1);
+	})
 
-    function getData(oTx) {
-        $.ajax({
-            type: "get",
-            url: "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + oTx + "&json=1&cb=fn",
-            dataType: "jsonp",
-            jsonpCallback: "fn",
-            success: function (res) {
-                var oText = res.s;
-                console.log(oText);
-                var oLi = "";
-                $.each(oText, function (index, iteam) {
-                    console.log(oText[index]);
-                    oLi += '<li><a href="https://www.baidu.com/s?wd=' + oText[index] + '" target = "_black" >' + oText[index] + '</a></li>'
-                })
-                $("#js_list").empty();
-                $("#js_list").append(oLi);
+	getData(1);
 
-            }
-        })
-    }
+	function getData(oTx) {
+		$.ajax({
+			type: "get",
+			url: "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + oTx + "&json=1&cb=fn",
+			dataType: "jsonp",
+			jsonpCallback: "fn",
+			success: function(res) {
+				var oText = res.s;
+				console.log(oText);
+				var oLi = "";
+				$.each(oText, function(index, iteam) {
+					console.log(oText[index]);
+					oLi += '<li><a href="https://www.baidu.com/s?wd=' + oText[index] + '" target = "_black" >' + oText[index] + '</a></li>'
+				})
+				$("#js_list").empty();
+				$("#js_list").append(oLi);
 
+			}
+		})
+	}
 
-    /* 
-        //第二种写法
-        function setText(oTxc) {
-            $.getJSON("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&cb=?", {
-                wd: oTxc,
-            }, function (res) {
-                console.log(res);
-            });
-        } */
+	/* 
+	    //第二种写法
+	    function setText(oTxc) {
+	        $.getJSON("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&cb=?", {
+	            wd: oTxc,
+	        }, function (res) {
+	            console.log(res);
+	        });
+	    } */
 
 })
