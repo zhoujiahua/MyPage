@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+    .boxc{
+        width: 500px;
+        height: 50px;
+        border: 1px solid pink;
+        padding-left: 15px;
+    }
+    .listc{
+        /* display: none; */
+    }
+    .listc li a{
+        display: block;
+        width: 515px;
+        padding: 8px 0;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+    .listc li a:hover{
+        background-color:green;
+        color: #fff;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="w box">
+            <input type="text" class="boxc" id="js_box"  >
+            <ul class="listc" id="js_list">
+                
+            </ul>
+        </div>
+    </div>
+    
+    <!-- JS -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/so.js"></script>
+    <script>
+    $(function(){
+        $.ajax({
+            type:"get",
+            url:"http://api01.bitspaceman.com:8000/news/qihoo?",
+            jsonp:"jsonpcallback",
+            jsonpCallback:"fn",
+            dataType:"jsonp",
+            data:{
+                apikey:"qHb7uNYta4gaKt0Etxyb29b0v0Vk8mG46pyeGK3y1SEmda0SdBx0zqbKM40MkCkX",
+                content:"头条"
+            },
+            success:function(res){
+                console.log(res)
+                debugger
+            }
+        });
+    })
+    </script>
+</body>
+</html>

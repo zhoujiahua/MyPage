@@ -1,28 +1,4 @@
-/* 
-//原生JS写法
-window.onload = function(){
-    // alert("");
-    function fn(data){
-        console.log(data);
-        var oData = data.s;
-        var oList = document.getElementById("js_list");
-        if(oData.length){
-            oList.style.display = "block";
-        }else{
-            oList.style.display = "none";
-        }
-    }
-    
-    var oBox = document.getElementById("js_box");
-   
-    oBox.onkeyup = function(){
-        var oScr = document.createElement("script");
-        oScr.src = "http://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+this.value+"&json=1&cb=fn";
-        document.body.appendChild(oScr);
-
-    }
-} */
-
+/* 跨域访问360搜索智能提示词 */
 $(function() {
 	var oValo = $("#js_box").val();
 	var oList = $("#js_list");
@@ -38,10 +14,10 @@ $(function() {
 	function getData(oTx) {
 		$.ajax({
 			type: "get",
-			url: "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=" + oTx + "&json=1&cb=?",
+			url: "https://sug.so.360.cn/suggest?callback=?&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word="+oTx+"&mid=!UYSSW2!t_aKk1IqT-80zw!Su85JzVXU3TlwHvv4",
 			dataType: "jsonp",
-			jsonp:"jsonpcallback",
-			jsonpCallback: "fn",
+			// jsonp:"jsonpcallback",
+			jsonpCallback: "suggest_so",
 			success: function(res) {
 				var oText = res.s;
 				console.log(oText);
